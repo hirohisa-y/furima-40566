@@ -27,7 +27,7 @@
 | category_id        | integer    | null: false |
 | condition_id       | integer    | null: false |
 | delivery_charge_id | integer    | null: false |
-| region_id          | integer    | null: false |
+| prefecture_id      | integer    | null: false |
 | number_of_days_id  | integer    | null: false |
 | price              | integer    | null: false |
 | user               | references | null: false, foreign_key: true |
