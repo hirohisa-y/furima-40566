@@ -26,7 +26,7 @@
 | description        | text       | null: false |
 | category_id        | integer    | null: false |
 | condition_id       | integer    | null: false |
-| delivery_charge    | integer    | null: false |
+| delivery_charge_id | integer    | null: false |
 | region_id          | integer    | null: false |
 | number_of_days_id  | integer    | null: false |
 | price              | integer    | null: false |
@@ -42,11 +42,11 @@
 | Column             | Type       | Options     |
 |--------------------|------------|-------------|
 | post_code          | integer    | null: false |
-| prefecture         | string     | null: false |
+| prefecture_id      | integer    | null: false |
 | municipality       | string     | null: false |
-| street_address     | integer    | null: false |
+| street_address     | string     | null: false |
 | building_name      | string     |             |
-| telephone_number   | integer    | null: false |
+| telephone_number   | string     | null: false |
 | record             | references | null: false, foreign_key: true |
 
 ### Association
