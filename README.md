@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :items
-- has_one :record
+- has_many :records
 
 ## items テーブル
 
@@ -24,16 +24,17 @@
 |--------------------|------------|-------------|
 | name               | string     | null: false |
 | description        | text       | null: false |
-| category           | string     | null: false |
-| condition          | string     | null: false |
+| category_id        | integer    | null: false |
+| condition_id       | integer    | null: false |
 | delivery_charge    | integer    | null: false |
+| region_id          | integer    | null: false |
+| number_of_days_id  | integer    | null: false |
 | price              | integer    | null: false |
 | user               | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :address
 - has_one :record
 
 ## addresses テーブル
@@ -46,11 +47,11 @@
 | street_address     | integer    | null: false |
 | building_name      | string     |             |
 | telephone_number   | integer    | null: false |
+| record             | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_many :items
-- has_one :record
+- belongs_to :record
 
 ## records テーブル
 
@@ -63,6 +64,6 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 
