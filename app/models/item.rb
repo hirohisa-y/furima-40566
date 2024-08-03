@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   belongs_to :number_of_day
   belongs_to :prefecture
 
-  validates :name, :description, :price, presence: true
+  validates :name, :description, :price, :image, presence: true
   validates :category_id, :condition_id, :delivery_charge_id, :prefecture_id, :number_of_day_id, numericality: { other_than: 1 , message: "can't be blank" }
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
 end
