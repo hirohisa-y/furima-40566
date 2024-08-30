@@ -7,7 +7,7 @@ RSpec.describe Form, type: :model do
 
   describe '配送先登録' do
     context '配送先登録できる場合' do
-      it "post_codeと,prefecture_id,municipality,street_address,telephone_numberが存在すれば登録できる" do
+      it "post_codeと,prefecture_id,municipality,street_address,telephone_numberとtokenが存在すれば登録できる" do
         expect(@form).to be_valid
       end
     end
@@ -53,6 +53,12 @@ RSpec.describe Form, type: :model do
         @form.telephone_number = '090-1234-5678'
         @form.valid?
         expect(@form.errors.full_messages).to include("Telephone number input only number")
+      end
+
+      it "tokenが空では登録できない" do
+        @form.token = ''
+        @form.valid?
+        expect(@form.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
