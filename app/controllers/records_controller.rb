@@ -12,11 +12,11 @@ class RecordsController < ApplicationController
   def create
     @form = Form.new(form_params)
     if @form.valid?
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 自身のPAY.JPテスト秘密鍵を記述しましょう
+      Payjp.api_key = ENV["PAYJP_SECRET_KEY"] 
       Payjp::Charge.create(
-        amount: @item.price,  # 商品の値段
-        card: form_params[:token],    # カードトークン
-        currency: 'jpy'                 # 通貨の種類（日本円）
+        amount: @item.price, 
+        card: form_params[:token],    
+        currency: 'jpy'                
       )
        @form.save
       redirect_to root_path
@@ -28,7 +28,7 @@ class RecordsController < ApplicationController
 
   private
   def form_params
-    params.require(:form).permit(:post_code, :prefecture_id, :municipality, :street_address, :building_name, :telephone_number, :price ).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token] )
+    params.require(:form).permit(:post_code, :prefecture_id, :municipality, :street_address, :building_name, :telephone_number ).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token] )
   end
 
   def set_item
