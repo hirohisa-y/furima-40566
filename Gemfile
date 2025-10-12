@@ -101,3 +101,6 @@ gem 'payjp'
 gem 'gon'
 
 gem "aws-sdk-s3", require: false
+
+gem 'ed25519', '~> 1.2'
+gem 'bcrypt_pbkdf', '~> 1.0'
